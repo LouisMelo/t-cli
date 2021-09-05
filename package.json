@@ -1,0 +1,24 @@
+{
+  "name": "t",
+  "version": "1.0.1",
+  "description": "t-base cli",
+  "main": "index.js",
+  "preferGlobal": true,
+  "bin": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "louismelo",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0",
+    "dayjs": "^1.10.6",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.1.2",
+    "lodash": "^4.17.21",
+    "lowdb": "^2.1.0"
+  }
+}
