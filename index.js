@@ -5,6 +5,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 import _ from 'lodash';
 import { program } from 'commander';
 import { LowSync, JSONFileSync } from 'lowdb';
+import Table from 'tty-table';
 
 dayjs.extend(weekOfYear)
 
@@ -90,6 +91,25 @@ program
       const profit = calcProfit(transactions)
       console.log(chalk.red(`合计利润：${profit}`))
     }
+  })
+
+program
+  .command('list')
+  .alias('l')
+  .description('Show transction records')
+  .action(() => {
+    const header = [
+      { value: 'date' },
+      { value: 'type' },
+      { value: 'price' },
+      { value: 'amount' },
+    ]
+
+    db.read()
+    const rows = db.data
+
+    const output = Table(header, rows).render()
+    console.log(output)
   })
 
 program.parse(process.argv)
